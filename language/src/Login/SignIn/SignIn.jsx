@@ -1,115 +1,150 @@
-import React, { useContext } from 'react'
+import { useContext } from "react";
+import { Helmet } from "react-helmet-async";
 import { useForm } from "react-hook-form";
-import { Link,useLocation, useNavigate } from 'react-router-dom'
-import { AuthContext } from '../../provider/AuthProvider';
-import Swal from 'sweetalert2';
-
-function SignIn() {
+import { AuthContext } from "../../providers/AuthProvider";
+import { Link, useNavigate } from "react-router-dom";
+import Swal from 'sweetalert2'
+const SignIn = () => {
   const { register, handleSubmit, reset, formState: { errors } } = useForm();
-  const {createUser,updateUserProfile} = useContext(AuthContext)
-  const navigate = useNavigate()
-  const location = useLocation()
-  const from = location.state?.from?.pathname || "/"
-  const onSubmit = data => {
+  const { createUser, updateUserProfile } = useContext(AuthContext);
+  const navigate = useNavigate();
 
-   
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    watch,
+  } = useForm();
 
-            createUser(data.email,data.password)
-            .then(result =>{
-                const loggedUser = result.user
-                console.log(loggedUser)
-                updateUserProfile(data.name,data.photoUrl) 
-                .then(()=>{
-                    const saveUser = {name:data.name, email:data.email}
-                    fetch('http://localhost:1000/users',{
-                        method:"POST",
-                        headers:{
-                            'content-type':'application/json'
-                        },
-                        body:JSON.stringify(saveUser)
-                    })
-                    .then(res => res.json())
-                    .then(data =>{
-                        if(data.insertedId){
-                            reset()
-                            Swal.fire({
-                                position: 'top-end',
-                                icon: 'success',
-                                title: 'Your Succesfully create account',
-                                showConfirmButton: false,
-                                timer: 1500
-                              })
-                              navigate(from,{replace:true})
-                        }
-                    })
-                    console.log("User Profile info Update")
-                 
-                }).catch(error => console.log(error))
-            })
-   };
+  const onSubmit = (data) => {
+    // Handle form submission
+    console.log(data);
+    createUser(data.email, data.password)
+        .then(result => {
+            const loggedUser = result.user;
+            console.log(loggedUser);
+            updateUserProfile(data.name, data.photoURL)
+                .then(() => {
+                    console.log('user profile info updated')
+                    reset();
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: 'User created successfully.',
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                    navigate('/');
+
+                })
+                .catch(error => console.log(error))
+        })
+  };
+
+  const password = watch('password');
 
   return (
-    <div>
-    <div className="hero min-h-screen bg-base-200">
-                <div className="hero-content flex-col lg:flex-row-reverse">
-                    <div className="text-center lg:text-left">
-                        <h1 className="text-5xl font-bold">Sign up now!</h1>
-                        <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
-                    </div>
-                    <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-                        <form onSubmit={handleSubmit(onSubmit)} className="card-body">
-                            <div className="form-control">
-                                <label className="label">
-                                    <span className="label-text">Name</span>
-                                </label>
-                                <input type="text"  {...register("name", { required: true })} name="name" placeholder="Name" className="input input-bordered" />
-                                {errors.name && <span className="text-red-600">Name is required</span>}
-                            </div>
-                            <div className="form-control">
-                                <label className="label">
-                                    <span className="label-text">Photo Url</span>
-                                </label>
-                                <input type="text"  {...register("photoUrl", { required: true })}  placeholder="Photo Url" className="input input-bordered" />
-                                {errors.photoUrl && <span className="text-red-600">Name is required</span>}
-                            </div>
-                            
-                            <div className="form-control">
-                                <label className="label">
-                                    <span className="label-text">Email</span>
-                                </label>
-                                <input type="email"  {...register("email", { required: true })} name="email" placeholder="email" className="input input-bordered" />
-                                {errors.email && <span className="text-red-600">Email is required</span>}
-                            </div>
-                            <div className="form-control">
-                                <label className="label">
-                                    <span className="label-text">Password</span>
-                                </label>
-                                <input type="password"  {...register("password", {
-                                    required: true,
-                                    minLength: 6,
-                                    maxLength: 20,
-                                      })} placeholder="password" className="input input-bordered" />
-                                {errors.password?.type === 'required' && <p className="text-red-600">Password is required</p>}
-                                {errors.password?.type === 'minLength' && <p className="text-red-600">Password must be 6 characters</p>}
-                                {errors.password?.type === 'maxLength' && <p className="text-red-600">Password must be less than 20 characters</p>}
-                                {errors.password?.type === 'pattern' && <p className="text-red-600">Password must have one Uppercase one lower case, one number and one special character.</p>}
-                                <label className="label">
-                                    <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
-                                </label>
-                            </div>
-                            <div className="form-control mt-6">
-                                <input className="btn btn-primary" type="submit" value="Sign Up" />
-                            </div>
-                        </form>
-                        <p><small>Already have an account <Link to="/login">Login</Link></small></p>
-                        
-                         
-                    </div>
-                </div>
-            </div>
-    
-    </div>
-  )
-}
+    <form onSubmit={handleSubmit(onSubmit)} className="max-w-sm mx-auto">
+      <div className="mb-4">
+        <label htmlFor="name" className="block text-gray-700">
+          Name:
+        </label>
+        <input
+          type="text"
+          id="name"
+          {...register('name', { required: true })}
+          className="w-full px-4 py-2 mt-2 border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+        />
+        {errors.name && <span className="text-red-500">Name is required</span>}
+      </div>
 
-export default SignIn
+      <div className="mb-4">
+        <label htmlFor="email" className="block text-gray-700">
+          Email:
+        </label>
+        <input
+          type="email"
+          id="email"
+          {...register('email', { required: true })}
+          className="w-full px-4 py-2 mt-2 border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+        />
+        {errors.email && <span className="text-red-500">Email is required</span>}
+      </div>
+
+      <div className="mb-4">
+        <label htmlFor="password" className="block text-gray-700">
+          Password:
+        </label>
+        <input
+          type="password"
+          id="password"
+          {...register('password', {
+            required: true,
+            minLength: {
+              value: 6,
+              message: 'Password must be at least 6 characters long',
+            },
+            pattern: {
+              value: /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#$%^&*(),.?":{}|<>]).{6,}$/,
+              message: 'Password must contain at least one capital letter and one special character',
+            },
+          })}
+          className="w-full px-4 py-2 mt-2 border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+        />
+        {errors.password && (
+          <span className="text-red-500">{errors.password.message}</span>
+        )}
+      </div>
+
+      <div className="mb-4">
+        <label htmlFor="confirmPassword" className="block text-gray-700">
+          Confirm Password:
+        </label>
+        <input
+          type="password"
+          id="confirmPassword"
+          {...register('confirmPassword', {
+            required: true,
+            validate: (value) => value === password || 'Passwords do not match',
+          })}
+          className="w-full px-4 py-2 mt-2 border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+        />
+        {errors.confirmPassword && (
+          <span className="text-red-500">{errors.confirmPassword.message}</span>
+        )}
+      </div>
+
+      <div className="mb-4">
+        <label htmlFor="photoUrl" className="block text-gray-700">
+          Photo URL:
+        </label>
+        <input
+          type="text"
+          id="photoUrl"
+          {...register('photoUrl', {
+            required: true,
+            minLength: {
+              value: 6,
+              message: 'Photo URL must be at least 6 characters long',
+            },
+          })}
+          className="w-full px-4 py-2 mt-2 border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+        />
+        {errors.photoUrl && (
+          <span className="text-red-500">{errors.photoUrl.message}</span>
+        )}
+      </div>
+
+      <button
+        type="submit"
+        className="px-4 py-2 text-white bg-[#5BD9B3] rounded hover:bg-indigo-600"
+      >
+        Sign In
+      </button>
+      <p>Create an Account<Link className='ml-3 underline hover:bg-text-500' to="/login"> Login</Link></p>
+      
+    </form>
+  );
+};
+
+export default SignIn;
