@@ -1,19 +1,22 @@
 import React from 'react'
  
 import { Outlet } from 'react-router-dom'
-import Header from '../shared/Header'
-// import Header from '../shared/Header'
-// import Footer from '../shared/Footer'
+ 
+import Navbar from '../shared/Navbar'
+ 
 
 export default function Main() {
-  // const location = useLocation()
-  // const noHeaderFooter = location.pathname.includes('login') || location.pathname.includes('signin')
+ 
   return (
     <div>
-      {/* {noHeaderFooter || <Header />} */}
-      <Header />
+     
+      {/* <div className='max-w-7xl mx-auto'> */}
+      <Navbar />
+      {/* </div> */}
+      {/* <Header /> */}
+       
       <Outlet />
-      {/* {noHeaderFooter || <Footer />} */}
+    
     
     </div>
   )
