@@ -14,8 +14,8 @@ function Instructors() {
   },[])
   return (
     <div >
-    <h1 className='text-center text-5xl font-semibold mb-10'>Popular Instructor's</h1>
-    <div className='m-4 rounded-md mx-auto w-1/2 border-2  border-[#5BD9B3]'></div>
+    
+   
       <div className='grid lg:grid-cols-4 md:grid-cols-2 gap-8'>
       {
         instructor.map(singleInstrucotr => <SingleInstructor singleInstrucotr={singleInstrucotr} key={singleInstrucotr._id} />)

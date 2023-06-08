@@ -14,7 +14,12 @@ function Home() {
     <Learn />
     
     {/* popular instructors */}
+    <div>
+    <h1 className='text-center text-5xl font-semibold mb-10'>Popular Instructor's</h1>
+    <div className='m-4 rounded-md mx-auto w-1/2 border-2  border-[#5BD9B3]'></div>
     <Instructors />
+    </div>
+    
     
     </div>
     <div className='  max-w-7xl mx-auto'>
