@@ -1,21 +1,13 @@
-import { useContext } from "react";
-import { Helmet } from "react-helmet-async";
+import { useContext } from "react"; 
 import { useForm } from "react-hook-form";
-import { AuthContext } from "../../providers/AuthProvider";
+ 
 import { Link, useNavigate } from "react-router-dom";
 import Swal from 'sweetalert2'
+import { AuthContext } from "../../provider/AuthProvider";
 const SignIn = () => {
-  const { register, handleSubmit, reset, formState: { errors } } = useForm();
   const { createUser, updateUserProfile } = useContext(AuthContext);
-  const navigate = useNavigate();
-
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    watch,
-  } = useForm();
-
+  const { register,watch , handleSubmit, reset, formState: { errors } } = useForm();
+  const navigate = useNavigate()
   const onSubmit = (data) => {
     // Handle form submission
     console.log(data);
