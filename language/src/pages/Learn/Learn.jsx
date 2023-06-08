@@ -5,7 +5,7 @@ function Learn() {
     <>
         <h1 className='mb-10 text-3xl text-center text-cyan-900 font-semibold'>What do you learn?</h1>
 
-    <div className='grid lg:grid-cols-4 gap-5 md:grid-col-2'>
+    <div className='mb-10 grid lg:grid-cols-4 gap-5 md:grid-col-2'>
   
         <div className='text-center '>
           <div className='mx-auto flex justify-center'>
