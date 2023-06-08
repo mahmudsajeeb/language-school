@@ -1,0 +1,11 @@
+.foooter{
+  background-color: #3E3C36 !important;
+}
+.footer-titles {
+  color: white;
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+.footer-section a:hover{
+  color: aqua;
+}
