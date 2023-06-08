@@ -12,7 +12,11 @@ function Home() {
     <div className='mt-16  max-w-7xl mx-auto'>
     <Learn />
     {/* <Offers /> */}
+    
+    </div>
+    <div className='  max-w-7xl mx-auto'>
     <Offer />
+    
     </div>
     </>
   )

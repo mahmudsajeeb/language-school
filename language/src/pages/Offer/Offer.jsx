@@ -17,12 +17,12 @@ const Offer = () => {
     }
     return 'relative w-64 h-64 overflow-hidden bg-white rounded-lg shadow-md';
   };
+
   const cards = [
     {
       imageSrc: 'https://language-center.ancorathemes.com/wp-content/uploads/2016/10/image-7.jpg',
       heading: "General Courses",
       text: 'Our language centre offers group or personal lessons, various modern languages for all ages and levels of knowledge.',
-      
     },
     {
       imageSrc: 'https://language-center.ancorathemes.com/wp-content/uploads/2016/10/image-8.jpg',
@@ -43,36 +43,34 @@ const Offer = () => {
 
   return (
     <>
-      <h1 className='text-center text-slate-700 text-5xl font-semibold'>What We Offer</h1>
-    <p className='text-center text-cyan-400'>New Programs</p>
-    <div className="flex -mt-40 justify-center items-center h-screen">
-    
-      <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-8">
-        {cards.map((card, index) => (
-          <div
-            key={index}
-            className={getCardClassNames(index)}
-            onMouseEnter={() => handleMouseEnter(index)}
-            onMouseLeave={handleMouseLeave}
-          >
-            <div className="relative h-full">
-              <img
-                src={card.imageSrc}
-                alt="Card Image"
-                className="w-full h-full object-cover"
-              />
-              {hoveredIndex === index && (
-                <div className="absolute top-0 left-0 w-full h-full flex flex-col items-center justify-center bg-black bg-opacity-70 text-white text-center">
-                  <p className="text-2xl">{card.heading}</p>
-                  <p className="mt-2">{card.text}</p>
-                </div>
-              )}
+      <h1 className='text-center text-slate-700 text-5xl font-semibold mb-4'>What We Offer</h1>
+      <p className='text-center text-cyan-400 mb-7'>New Programs</p>
+      <div className="flex mb-10 justify-center items-center">
+        <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-8">
+          {cards.map((card, index) => (
+            <div
+              key={index}
+              className={getCardClassNames(index)}
+              onMouseEnter={() => handleMouseEnter(index)}
+              onMouseLeave={handleMouseLeave}
+            >
+              <div className="relative h-full">
+                <img
+                  src={card.imageSrc}
+                  alt="Card Image"
+                  className="w-full h-full object-cover"
+                />
+                {hoveredIndex === index && (
+                  <div className="absolute top-0 left-0 w-full h-full flex flex-col items-center justify-center bg-black bg-opacity-70 text-white text-center">
+                    <p className="text-2xl">{card.heading}</p>
+                    <p className="mt-2">{card.text}</p>
+                  </div>
+                )}
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
-    </div>
-
     </>
   );
 };
