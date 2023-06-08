@@ -3,6 +3,7 @@ import Slider from './Slider'
 import Learn from '../Learn/Learn'
 import Offers from '../Offer/Offers'
 import Offer from '../Offer/Offer'
+import Instructors from '../../Instructors/Instructors'
 
 function Home() {
   return (
@@ -11,7 +12,9 @@ function Home() {
   
     <div className='mt-16  max-w-7xl mx-auto'>
     <Learn />
-    {/* <Offers /> */}
+    
+    {/* popular instructors */}
+    <Instructors />
     
     </div>
     <div className='  max-w-7xl mx-auto'>
