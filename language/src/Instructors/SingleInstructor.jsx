@@ -2,7 +2,7 @@ import React from 'react'
 
 function SingleInstructor({singleInstrucotr}) {
   const {name,image,email,numClassesTaken,languagesTaken} =singleInstrucotr
-  console.log(singleInstrucotr.name)
+ 
   return (
     <div>
          <div className="rounded-lg overflow-hidden shadow-lg">

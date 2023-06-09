@@ -2,6 +2,7 @@
   {
     "image": "image1.jpg",
     "name": "English",
+    "category":"popular",
     "instructor": "John Doe",
     "availableSeats": 10,
     "price": 29.99
@@ -11,18 +12,21 @@
     "name": "Spanish",
     "instructor": "Jane Smith",
     "availableSeats": 5,
-    "price": 19.99
+    "price": 19.99,
+    "category":"popular"
   },
   {
     "image": "image3.jpg",
     "name": "French",
     "instructor": "David Johnson",
+    "category":"popular",
     "availableSeats": 8,
     "price": 24.99
   },
   {
     "image": "image4.jpg",
     "name": "German",
+    "category":"popular",
     "instructor": "Emily Brown",
     "availableSeats": 12,
     "price": 34.99
@@ -32,6 +36,7 @@
     "name": "Italian",
     "instructor": "Michael Wilson",
     "availableSeats": 3,
+    "category":"popular",
     "price": 14.99
   },
   {
@@ -39,6 +44,7 @@
     "name": "Chinese",
     "instructor": "Sophia Garcia",
     "availableSeats": 6,
+    "category":"popular",
     "price": 21.99
   },
   {
@@ -46,11 +52,13 @@
     "name": "Japanese",
     "instructor": "Daniel Martinez",
     "availableSeats": 15,
+    "category":"popular",
     "price": 39.99
   },
   {
     "image": "image8.jpg",
     "name": "Korean",
+    "category":"popular",
     "instructor": "Olivia Lopez",
     "availableSeats": 4,
     "price": 17.99

@@ -3,7 +3,8 @@ import { useForm } from 'react-hook-form';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useContext, useEffect, useState } from 'react'; 
  
- 
+import { Helmet, HelmetProvider } from 'react-helmet-async';
+
  
  
 import Swal from 'sweetalert2'
@@ -47,6 +48,9 @@ const Login = () => {
 
   return (
     <>
+     <Helmet>
+    <title>Login</title>
+    </Helmet>
     <form onSubmit={handleSubmit(onSubmit)} className="max-w-sm mx-auto">
       <div className="mb-4">
         <label htmlFor="email" className="text-gray-700">Email:</label>

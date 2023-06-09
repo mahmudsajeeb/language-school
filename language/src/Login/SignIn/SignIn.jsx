@@ -1,6 +1,7 @@
 import { useContext } from "react"; 
 import { useForm } from "react-hook-form";
- 
+import { Helmet, HelmetProvider } from 'react-helmet-async';
+
 import { Link, useNavigate } from "react-router-dom";
 import Swal from 'sweetalert2'
 import { AuthContext } from "../../provider/AuthProvider";
@@ -36,6 +37,10 @@ const SignIn = () => {
   const password = watch('password');
 
   return (
+    <>
+    <Helmet>
+      <title>SignIn</title>
+    </Helmet>
     <form onSubmit={handleSubmit(onSubmit)} className="max-w-sm mx-auto">
       <div className="mb-4">
         <label htmlFor="name" className="block text-gray-700">
@@ -136,6 +141,7 @@ const SignIn = () => {
       <p>Create an Account<Link className='ml-3 underline hover:bg-text-500' to="/login"> Login</Link></p>
       
     </form>
+    </>
   );
 };
 
