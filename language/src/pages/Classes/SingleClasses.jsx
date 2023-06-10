@@ -2,10 +2,12 @@ import React, { useContext } from 'react'
 import { AuthContext } from '../../provider/AuthProvider'
 import { useLocation, useNavigate } from 'react-router-dom'
 import Swal from 'sweetalert2'
+import useBook from '../../hook/UseBook'
 
 function SingleClasses({classes}) {
   const {_id,name,image,availableSeats,instructor,price} =classes
   const {user} = useContext(AuthContext) 
+  const [,refetch] = useBook()
   const navigate = useNavigate() 
   const location = useLocation()
   const from = location.state?.from?.pathname || "/"
@@ -35,6 +37,7 @@ function SingleClasses({classes}) {
         if (response.ok) {
           const data = await response.json();
           if (data.insertedId) {
+            refetch()
             Swal.fire({
               title: 'Success!',
               text: 'Book is added',

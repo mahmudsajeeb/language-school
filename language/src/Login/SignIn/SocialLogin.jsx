@@ -4,6 +4,7 @@ import {FaGoogle} from 'react-icons/fa'
  
 import { useLocation, useNavigate } from 'react-router-dom'
 import { AuthContext } from '../../provider/AuthProvider'
+ 
 function SocialLogin() {
 const navigate = useNavigate()
 const location = useLocation()

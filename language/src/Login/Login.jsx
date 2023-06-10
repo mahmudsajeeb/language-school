@@ -47,7 +47,7 @@ const Login = () => {
  
 
   return (
-    <>
+    <div className='max-w-sm mx-auto bg-[#55E2B8] mb-20 p-10  '>
      <Helmet>
     <title>Login</title>
     </Helmet>
@@ -97,7 +97,7 @@ const Login = () => {
       <p>Create an Account<Link className='ml-3 underline hover:bg-text-500' to="/signin"> Sign</Link></p>
     </form>
    
-    </>
+    </div>
   );
 };
 

@@ -85,9 +85,11 @@ const navMenu = <>
            
                 <button onClick={handleLogOut} className="btn bg-[#5BD9B3] text-white hover:bg-[#55e2b8]">LogOut</button>
             <div className="w-10 rounded-full">
-                  <img width={100} height={100} src={user?.photoURL} />
+                  <img width={100} height={100} src={user?.photoURL}/>
                    
             </div>
+             
+
             </> : <>
             <Link to='/login' className="btn bg-[#5BD9B3] text-white hover:bg-[#55e2b8]">Login</Link>
             </>

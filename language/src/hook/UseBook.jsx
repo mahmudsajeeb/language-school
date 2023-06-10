@@ -6,7 +6,7 @@ import { AuthContext } from '../provider/AuthProvider'
 const useBook = ()=>{
   const {user} = useContext(AuthContext)
  
-  const { isLoading,   data:book=[] } = useQuery({
+  const { refetch,   data:book=[] } = useQuery({
     queryKey: ['book',user?.email], 
      
     queryFn: async () => {      
@@ -15,7 +15,7 @@ const useBook = ()=>{
       return response.json();
     },
   })
-  return[book,isLoading]
+  return[book,refetch]
 }
 
 export default useBook
