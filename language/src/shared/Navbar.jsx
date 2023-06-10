@@ -7,6 +7,7 @@ function Navbar() {
   const { user, logOut } = useContext(AuthContext);
 
   const [book] = useBook()
+  console.log("book want to find", book)
 
   const handleLogOut = () => {
     logOut()
@@ -50,10 +51,11 @@ const navMenu = <>
             </NavLink>
             </li>
 
-            <li><NavLink to='dashboard/mycart'><button className="  gap-4">
-          <div className="badge badge-secondary"> <AiOutlineShoppingCart />{book?.length} + </div>
+            <NavLink ><button className="  gap-4">
+            <AiOutlineShoppingCart />
+          <span className="badge -mt-30 badge-secondary">+ {book?.length || 0}</span>
           
-        </button></NavLink></li>
+        </button></NavLink>
 </>
 
 
@@ -84,6 +86,7 @@ const navMenu = <>
                 <button onClick={handleLogOut} className="btn bg-[#5BD9B3] text-white hover:bg-[#55e2b8]">LogOut</button>
             <div className="w-10 rounded-full">
                   <img width={100} height={100} src={user?.photoURL} />
+                   
             </div>
             </> : <>
             <Link to='/login' className="btn bg-[#5BD9B3] text-white hover:bg-[#55e2b8]">Login</Link>

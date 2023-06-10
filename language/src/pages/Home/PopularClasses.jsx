@@ -5,7 +5,7 @@ import PopularSingleClass from './PopularSingleClass'
   const [popularClass,setPopularClass] = useState([])
 
   useEffect(()=>{
-    fetch('https://school-server-two.vercel.app/classes')
+    fetch('http://localhost:1000/classes')
     .then(res =>res.json())
     .then(data =>
       {

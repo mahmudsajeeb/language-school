@@ -20,6 +20,7 @@ function SingleClasses({classes}) {
         availableSeats,
         instructor,
         price,
+        email:user.email
       };
   
       try {
