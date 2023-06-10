@@ -8,7 +8,8 @@ import Classes from "../pages/Classes/Classes";
 import Login from "../Login/Login";
 import SignIn from "../Login/SignIn/SignIn";
 import Instructors from "../Instructors/Instructors";
-
+import Dashboard from "../layouts/Dashboard/Dashboard"
+import Mybook from "../pages/Dashboard/Mybook/Mybook"
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -34,6 +35,17 @@ export const router = createBrowserRouter([
         path:"signin",
         element:<SignIn />
       },
+    ],
+    
+  },
+  {
+    path:'dashboard',
+    element:<Dashboard />,
+    children:[
+      {
+        path:'mybook',
+        element:<Mybook></Mybook>
+      }
     ]
   }
 ])

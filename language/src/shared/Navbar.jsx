@@ -51,11 +51,11 @@ const navMenu = <>
             </NavLink>
             </li>
 
-            <NavLink ><button className="  gap-4">
+            <Link to="/dashboard/mybook" ><button className="  gap-4">
             <AiOutlineShoppingCart />
           <span className="badge -mt-30 badge-secondary">+ {book?.length || 0}</span>
           
-        </button></NavLink>
+        </button></Link>
 </>
 
 
