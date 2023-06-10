@@ -6,7 +6,7 @@ function Instructors() {
   const [instructor,setInstructor] = useState([])
 
   useEffect(()=>{
-    fetch('instructor.json')
+    fetch('https://school-server-two.vercel.app/instructor')
     .then(res =>res.json())
     .then(data =>{
       const popularInstructors= data.filter(inst => inst.category ==='popular')

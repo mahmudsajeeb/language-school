@@ -1,6 +1,6 @@
 [
   {
-    "id": 1,
+  
     "image": "https://images.pexels.com/photos/5212329/pexels-photo-5212329.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     "name": "Max Fischer",
     "email": "max@gmail.com",
@@ -9,7 +9,7 @@
     "languagesTaken": ["English", "Spanish", "French", "German"]
   },
   {
-    "id": 2,
+   
     "image": "https://images.pexels.com/photos/9489771/pexels-photo-9489771.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     "name": "Mili",
     "email": "mili@gmail.com",
@@ -18,7 +18,7 @@
     "languagesTaken": ["Italian", "Japanese"]
   },
   {
-    "id": 3,
+     
     "image": "https://images.pexels.com/photos/6503155/pexels-photo-6503155.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     "name": "Thirdman",
     "email": "Thirdman@gmail.com",
@@ -27,7 +27,7 @@
     "languagesTaken": ["Chinese", "Arabic", "Russian", "Korean", "Portuguese", "Hindi"]
   },
   {
-    "id": 4,
+     
     "image": "https://images.pexels.com/photos/5427868/pexels-photo-5427868.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     "name": "Tima Miroshnichenko",
     "email": "Tima@gmail.com",
@@ -36,7 +36,7 @@
     "languagesTaken": ["Swedish", "Dutch", "Norwegian"]
   },
   {
-    "id": 5,
+    
     "image": "https://images.pexels.com/photos/5324947/pexels-photo-5324947.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     "name": "Anna Shvets",
     "email": "anna@gmail.com",
@@ -45,7 +45,7 @@
     "languagesTaken": ["Finnish"]
   },
   {
-    "id": 6,
+     
     "image": "https://images.pexels.com/photos/3760263/pexels-photo-3760263.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     "name": "Andrea Piacquadio",
     "email": "adrea@gmail.com",

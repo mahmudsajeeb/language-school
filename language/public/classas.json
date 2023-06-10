@@ -1,6 +1,6 @@
 [
   {
-    "image": "image1.jpg",
+    "image": "https://images2.minutemediacdn.com/image/upload/c_fill,w_720,ar_16:9,f_auto,q_auto,g_auto/shape/cover/sport/122193834-96d5c85a9d381bb886eb2b2f831de792.jpg",
     "name": "English",
     "category":"popular",
     "instructor": "John Doe",
@@ -8,7 +8,7 @@
     "price": 29.99
   },
   {
-    "image": "image2.jpg",
+    "image": "https://www.shutterstock.com/image-vector/vector-spanish-flag-260nw-382973656.jpg",
     "name": "Spanish",
     "instructor": "Jane Smith",
     "availableSeats": 5,
@@ -16,7 +16,7 @@
     "category":"popular"
   },
   {
-    "image": "image3.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/en/thumb/c/c3/Flag_of_France.svg/1200px-Flag_of_France.svg.png",
     "name": "French",
     "instructor": "David Johnson",
     "category":"popular",
@@ -24,7 +24,7 @@
     "price": 24.99
   },
   {
-    "image": "image4.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/en/thumb/b/ba/Flag_of_Germany.svg/1200px-Flag_of_Germany.svg.png",
     "name": "German",
     "category":"popular",
     "instructor": "Emily Brown",
@@ -32,7 +32,7 @@
     "price": 34.99
   },
   {
-    "image": "image5.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/en/thumb/0/03/Flag_of_Italy.svg/800px-Flag_of_Italy.svg.png",
     "name": "Italian",
     "instructor": "Michael Wilson",
     "availableSeats": 3,
@@ -40,7 +40,7 @@
     "price": 14.99
   },
   {
-    "image": "image6.jpg",
+    "image": "https://www.edarabia.com/wp-content/uploads/2019/10/china-flag.jpg",
     "name": "Chinese",
     "instructor": "Sophia Garcia",
     "availableSeats": 6,
@@ -48,7 +48,7 @@
     "price": 21.99
   },
   {
-    "image": "image7.jpg",
+    "image": "https://static.wixstatic.com/media/bcf5d6_ea54daf8024a43aaad3c70460c00f365~mv2.jpg/v1/fill/w_640,h_372,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/bcf5d6_ea54daf8024a43aaad3c70460c00f365~mv2.jpg",
     "name": "Japanese",
     "instructor": "Daniel Martinez",
     "availableSeats": 15,
@@ -56,7 +56,7 @@
     "price": 39.99
   },
   {
-    "image": "image8.jpg",
+    "image": "https://www.shutterstock.com/image-illustration/south-korea-flag-world-flags-260nw-56816590.jpg",
     "name": "Korean",
     "category":"popular",
     "instructor": "Olivia Lopez",
