@@ -29,9 +29,7 @@ function AuthProvider({children}) {
     return updateProfile(auth.currentUser, {
       displayName: name,
       photoURL: photo,
-    }).catch(error => {
-        console.log("updateuser profile",error);
-      });
+    }) 
   }
 
  

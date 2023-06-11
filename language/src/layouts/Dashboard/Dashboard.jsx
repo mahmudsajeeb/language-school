@@ -3,9 +3,12 @@ import { Helmet } from 'react-helmet-async'
 import { NavLink, Outlet } from 'react-router-dom'
 import { BsBookHalf } from 'react-icons/bs';
 import { FaHome,FaWallet } from 'react-icons/fa';
+import { AiOutlineShoppingCart } from "react-icons/ai" 
+
+import useBook from '../../hook/UseBook';
 
  function Dashboard() {
-  
+  const [book] = useBook()
    return (
      <div>
      <Helmet>
@@ -24,7 +27,8 @@ import { FaHome,FaWallet } from 'react-icons/fa';
       {/* Sidebar content here */}
       <li><NavLink><FaHome></FaHome> User Home</NavLink></li>
       <li><NavLink><FaWallet></FaWallet> Payment History</NavLink></li>
-      <li><NavLink to="/dashboard/mybook"> <BsBookHalf ></BsBookHalf> MyBook</NavLink></li>
+      <li><NavLink to="/dashboard/mybook"> <BsBookHalf ></BsBookHalf> MyBook  <AiOutlineShoppingCart />
+          <span className="badge -mt-30 badge-secondary">+ {book?.length || 0}</span></NavLink></li>
        
        <div className="divider"></div>
        <li><NavLink to="/"><FaHome></FaHome>Home</NavLink></li>
