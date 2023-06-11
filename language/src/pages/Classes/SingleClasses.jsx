@@ -84,8 +84,8 @@ function SingleClasses({classes}) {
         <p className="text-sm text-gray-500">Instructor: {instructor}</p>
         <p className="text-sm text-gray-500">Available Seats: {availableSeats}</p>
         <p className="text-lg font-semibold text-gray-900 mt-2">${price}</p>
-        <button onClick={()=>handleBook(classes)} className="mt-4 px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-md">
-          Enroll Now
+        <button onClick={()=>handleBook(classes)} className="mt-4 px-4 py-2 bg-[#5BD9B3] hover:bg-blue-600 text-white rounded-md">
+          Select Class
         </button>
       </div>
     </div>

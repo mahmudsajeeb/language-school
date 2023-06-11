@@ -18,7 +18,7 @@ const useBook = ()=>{
   // return[book,refetch]
   const { refetch, data: book = [] } = useQuery(['book', user?.email], async () => {
     const response = await fetch(`http://localhost:1000/books?email=${user?.email}`);
-    console.log('res from found book', response);
+     
     return response.json();
   });
 
