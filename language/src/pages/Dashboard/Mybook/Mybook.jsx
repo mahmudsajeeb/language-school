@@ -8,9 +8,9 @@ import { Link } from "react-router-dom"
 function Mybook() {
   const [book,refetch] = useBook()
   const total = book.reduce((sum,item) => item.price + sum , 0)
-
+console.log("book delete",book._id)
   // todo
-  const handleDelete = row => {
+  const handleDelete = item => {
     Swal.fire({
         title: 'Are you sure?',
         text: "You won't be able to revert this!",
@@ -21,7 +21,7 @@ function Mybook() {
         confirmButtonText: 'Yes, delete it!'
     }).then((result) => {
         if (result.isConfirmed) {
-            fetch(`http://localhost:1000/books/${row._id}`, {
+            fetch(`http://localhost:1000/books/${item._id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())
@@ -66,9 +66,9 @@ function Mybook() {
       </tr>
     </thead>
     <tbody>
-      {/* row 1 */}
+      {/* item 1 */}
       {
-        book.map((row,index) => {
+        book.map((item,index) => {
           
           return(
             <tr>
@@ -78,19 +78,19 @@ function Mybook() {
         <td>
               
               <div className="font-bold">
-                {row.name}  
+                {item.name}  
               </div>
              
         </td>
         <td>
         <div>
-              <div className="font-bold">{row.instructor}</div>
+              <div className="font-bold">{item.instructor}</div>
                
             </div>
         </td>
-        <td>${row.price}</td>
+        <td>${item.price}</td>
         <td>
-          <button onClick={()=>handleDelete(row)} className="btn btn-ghost bg-red-600 text-white btn-xs">x</button>
+          <button onClick={()=>handleDelete(item)} className="btn btn-ghost bg-red-600 text-white btn-xs">x</button>
            
         </td>
       </tr>

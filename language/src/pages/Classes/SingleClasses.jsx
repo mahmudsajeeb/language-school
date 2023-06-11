@@ -5,6 +5,7 @@ import Swal from 'sweetalert2'
 import useBook from '../../hook/UseBook'
 
 function SingleClasses({classes}) {
+  console.log("classes",classes)
   const {_id,name,image,availableSeats,instructor,price} =classes
   const {user} = useContext(AuthContext) 
   const [,refetch] = useBook()
@@ -14,9 +15,9 @@ function SingleClasses({classes}) {
 
 
   const handleBook = async (book) => {
-    if (user) {
+    if (user && user.email) {
       const bookItem = {
-        _id,
+        bookItemId:_id,
         name,
         image,
         availableSeats,

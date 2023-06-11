@@ -10,6 +10,7 @@ import SignIn from "../Login/SignIn/SignIn";
 import Instructors from "../Instructors/Instructors";
 import Dashboard from "../layouts/Dashboard/Dashboard"
 import Mybook from "../pages/Dashboard/Mybook/Mybook"
+import ManageUsers from "../pages/Dashboard/ManageUsers/ManageUsers";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -45,6 +46,10 @@ export const router = createBrowserRouter([
       {
         path:'mybook',
         element:<Mybook></Mybook>
+      },
+      {
+        path:'manageusers',
+        element:<ManageUsers />
       }
     ]
   }

@@ -2,13 +2,16 @@
 import { Helmet } from 'react-helmet-async'
 import { NavLink, Outlet } from 'react-router-dom'
 import { BsBookHalf } from 'react-icons/bs';
-import { FaHome,FaWallet } from 'react-icons/fa';
+import { FaHome,FaUsers,FaWallet } from 'react-icons/fa';
 import { AiOutlineShoppingCart } from "react-icons/ai" 
 
 import useBook from '../../hook/UseBook';
 
  function Dashboard() {
   const [book] = useBook()
+
+  // todo : load data from the database 
+  const isAdmin =true;
    return (
      <div>
      <Helmet>
@@ -24,13 +27,36 @@ import useBook from '../../hook/UseBook';
   <div className="drawer-side">
     <label htmlFor="my-drawer-2" className="drawer-overlay"></label> 
     <ul className="menu p-4 w-80 h-full bg-green-500 text-base-content">
-      {/* Sidebar content here */}
+
+    {
+      isAdmin ? <>
+      <li><NavLink><FaHome></FaHome> Admin Home</NavLink></li>
+      <li><NavLink><FaWallet></FaWallet> Payment History</NavLink></li>
+      <li><NavLink to="/dashboard/mybook"> <BsBookHalf ></BsBookHalf> MyBook  <AiOutlineShoppingCart />
+          <span className="badge -mt-30 badge-secondary">+ {book?.length || 0}</span></NavLink></li>
+          <li><NavLink to='/dashboard/manageusers'><FaUsers></FaUsers>Manage Users</NavLink></li>
+       
+     
+      </> :<>
+
       <li><NavLink><FaHome></FaHome> User Home</NavLink></li>
       <li><NavLink><FaWallet></FaWallet> Payment History</NavLink></li>
       <li><NavLink to="/dashboard/mybook"> <BsBookHalf ></BsBookHalf> MyBook  <AiOutlineShoppingCart />
           <span className="badge -mt-30 badge-secondary">+ {book?.length || 0}</span></NavLink></li>
        
        <div className="divider"></div>
+       <li><NavLink to="/"><FaHome></FaHome>Home</NavLink></li>
+      </>
+    }
+      {/* Sidebar content here */}
+
+      <div className="divider"></div>
+      <li><NavLink><FaHome></FaHome> User Home</NavLink></li>
+      <li><NavLink><FaWallet></FaWallet> Payment History</NavLink></li>
+      <li><NavLink to="/dashboard/mybook"> <BsBookHalf ></BsBookHalf> MyBook  <AiOutlineShoppingCart />
+          <span className="badge -mt-30 badge-secondary">+ {book?.length || 0}</span></NavLink></li>
+       
+         
        <li><NavLink to="/"><FaHome></FaHome>Home</NavLink></li>
     </ul>
 
