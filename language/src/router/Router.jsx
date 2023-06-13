@@ -15,6 +15,8 @@ import ErrorPage from "../pages/ErrorPage";
 import PrivateRoutes from "../Routes/PrivateRoutes";
 import AdminRoute from "../Routes/AdminRoute";
 import AddaClass from "../pages/Dashboard/Instructors/AddaClass";
+import InstrutorRoute from "../Routes/InstructorRoute";
+import MyClasses from "../pages/Dashboard/Instructors/MyClasses";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -57,8 +59,12 @@ export const router = createBrowserRouter([
         element:<AdminRoute><ManageUsers /></AdminRoute>
       },
       {
+        path:'myclass',
+        element:<MyClasses />
+      },
+      {
         path:'addaclass',
-        element:<AddaClass />
+        element:<InstrutorRoute><AddaClass /></InstrutorRoute>,
       }
     ]
   }
