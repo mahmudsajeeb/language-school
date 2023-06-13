@@ -3,14 +3,11 @@ import ReactDOM from 'react-dom/client'
 import { 
   RouterProvider,
 } from "react-router-dom";
-import {
-  useQuery,
-  useMutation,
-  useQueryClient,
+import { 
   QueryClient,
   QueryClientProvider,
 } from '@tanstack/react-query'
-import { Helmet, HelmetProvider } from 'react-helmet-async';
+import {   HelmetProvider } from 'react-helmet-async';
 
 import './index.css'
 import { router } from './router/Router';

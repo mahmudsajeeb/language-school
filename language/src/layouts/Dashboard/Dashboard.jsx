@@ -4,14 +4,16 @@ import { NavLink, Outlet } from 'react-router-dom'
 import { BsBookHalf } from 'react-icons/bs';
 import { FaHome,FaUsers,FaWallet } from 'react-icons/fa';
 import { AiOutlineShoppingCart } from "react-icons/ai" 
+import { GiClassicalKnowledge } from "react-icons/gi" 
 
 import useBook from '../../hook/UseBook';
+import useAdmin from '../../hook/useAdmin';
 
  function Dashboard() {
   const [book] = useBook()
 
   // todo : load data from the database 
-  const isAdmin =true;
+  const isAdmin =useAdmin();
    return (
      <div>
      <Helmet>
@@ -31,29 +33,27 @@ import useBook from '../../hook/UseBook';
     {
       isAdmin ? <>
       <li><NavLink><FaHome></FaHome> Admin Home</NavLink></li>
-      <li><NavLink><FaWallet></FaWallet> Payment History</NavLink></li>
-      <li><NavLink to="/dashboard/mybook"> <BsBookHalf ></BsBookHalf> MyBook  <AiOutlineShoppingCart />
-          <span className="badge -mt-30 badge-secondary">+ {book?.length || 0}</span></NavLink></li>
+      <li><NavLink>Manage Classes</NavLink></li>
+       
           <li><NavLink to='/dashboard/manageusers'><FaUsers></FaUsers>Manage Users</NavLink></li>
        
      
       </> :<>
 
-      <li><NavLink><FaHome></FaHome> User Home</NavLink></li>
-      <li><NavLink><FaWallet></FaWallet> Payment History</NavLink></li>
-      <li><NavLink to="/dashboard/mybook"> <BsBookHalf ></BsBookHalf> MyBook  <AiOutlineShoppingCart />
-          <span className="badge -mt-30 badge-secondary">+ {book?.length || 0}</span></NavLink></li>
+      <li><NavLink>My Classes</NavLink></li>
+      <li><NavLink> Total Enrolled Students</NavLink></li>
+     
        
-       <div className="divider"></div>
-       <li><NavLink to="/"><FaHome></FaHome>Home</NavLink></li>
+       <li><NavLink to="/">Feedback</NavLink></li>
       </>
     }
       {/* Sidebar content here */}
 
       <div className="divider"></div>
-      <li><NavLink><FaHome></FaHome> User Home</NavLink></li>
+      
+      <li><NavLink to="/dashboard/addaclass"><GiClassicalKnowledge></GiClassicalKnowledge> Add a Classes </NavLink></li>
       <li><NavLink><FaWallet></FaWallet> Payment History</NavLink></li>
-      <li><NavLink to="/dashboard/mybook"> <BsBookHalf ></BsBookHalf> MyBook  <AiOutlineShoppingCart />
+      <li><NavLink to="/dashboard/mybook"> <BsBookHalf ></BsBookHalf> My Selected Classes  <AiOutlineShoppingCart />
           <span className="badge -mt-30 badge-secondary">+ {book?.length || 0}</span></NavLink></li>
        
          

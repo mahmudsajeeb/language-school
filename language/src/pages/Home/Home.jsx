@@ -18,7 +18,7 @@ function Home() {
       <Helmet>
         <title>Home</title>
       </Helmet>
-      <div className='fixed top-4 right-40'>
+      <div className='fixed top-4 right-60'>
         <button
           className='bg-gray-200 dark:bg-gray-800 p-2 rounded-md text-gray-700 dark:text-gray-300'
           onClick={toggleTheme}

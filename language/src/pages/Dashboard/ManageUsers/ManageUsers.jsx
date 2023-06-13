@@ -3,13 +3,15 @@ import {
   useQuery
 } from '@tanstack/react-query'
 import { Helmet } from 'react-helmet-async';
-import { FaUserShield } from 'react-icons/fa';
+import { motion, useViewportScroll, useTransform } from "framer-motion";
 import Swal from 'sweetalert2';
+import useAxiosSecure from '../../../hook/useAxiosSecure';
 function ManageUsers() {
+  const [axiosSecure] = useAxiosSecure()
   const { refetch, data: users = [] } = useQuery(['users'], async () => {
-    const response = await fetch("http://localhost:1000/users");
+    const response = await axiosSecure("/users");
  
-    return response.json();
+    return response.data;
    
   });
 
@@ -26,6 +28,25 @@ function ManageUsers() {
                 position: 'top-end',
                 icon: 'success',
                 title: `${user.name} is an Admin Now!`,
+                showConfirmButton: false,
+                timer: 1500
+              })
+        }
+    })
+}
+  const handleMakeInstructor = user =>{
+    fetch(`http://localhost:1000/users/instructor/${user._id}`, {
+        method: 'PATCH'
+    })
+    .then(res => res.json())
+    .then(data => {
+        console.log(data)
+        if(data.modifiedCount){
+            refetch();
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: `${user.name} is an Instructor Now!`,
                 showConfirmButton: false,
                 timer: 1500
               })
@@ -50,7 +71,7 @@ function ManageUsers() {
         <th>Name</th>
         <th>Email</th>
         <th>Role</th>
-        <th>Action</th>
+        
       </tr>
     </thead>
     <tbody>
@@ -60,10 +81,11 @@ function ManageUsers() {
         <th>{index + 1}</th>
         <td>{user.name}</td>
         <td>{user.email}</td>
-        <td>{user.role ==='admin' ?'admin':<button onClick={()=>handleMakeAdmin(user)} className="btn btn-ghost bg-red-600 text-white btn-xs"><FaUserShield></FaUserShield></button>}</td>
-        <td>  <button className="btn btn-ghost bg-green-600 text-white btn-xs">Admin</button></td>
-        <td>  <button className="btn btn-ghost bg-gray-600 text-white btn-xs">Instructor</button></td>
-        <td>  <button className="btn btn-ghost bg-blue-600 text-white btn-xs">Students</button></td>
+        <td>{user.role ==='admin' ?'admin':<button onClick={()=>handleMakeAdmin(user)} className="btn btn-ghost bg-green-600 text-white btn-xs">Admin</button>}</td>
+        <td>{user.role ==='instructor' ?'instructor':<button onClick={()=>handleMakeInstructor(user)} className="btn btn-ghost bg-black text-white btn-xs">Instructor</button>}</td>
+  
+         
+       
       </tr> )
     }
       

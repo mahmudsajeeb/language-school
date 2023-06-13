@@ -9,6 +9,7 @@ import { Helmet, HelmetProvider } from 'react-helmet-async';
  
 import Swal from 'sweetalert2'
 import { AuthContext } from '../provider/AuthProvider';
+import SocialLogin from './SignIn/SocialLogin';
 const Login = () => {
   const [disabled, setDisabled] = useState(true);
   const { signIn } = useContext(AuthContext);
@@ -96,7 +97,7 @@ const Login = () => {
       </button>
       <p>Create an Account<Link className='ml-3 underline hover:bg-text-500' to="/signin"> Sign</Link></p>
     </form>
-   
+   <SocialLogin />
     </div>
   );
 };

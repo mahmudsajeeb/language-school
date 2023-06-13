@@ -43,16 +43,16 @@ function AuthProvider({children}) {
      
     const unsubscribe = onAuthStateChanged(auth,currentUser =>{
       setUser(currentUser)
-    //  if(currentUser){
-    //   axios.post('http://localhost:1000/jwt',{email:currentUser.email})
-    //   .then(data => {
-    //     localStorage.setItem('access-token',data.data.token)
-    //     // console.log(data.data.token)
-    //     setLoading(false)
-    //   })
-    //  }else{
-    //   localStorage.removeItem('access-token')
-    //  }
+     if(currentUser){
+      axios.post('http://localhost:1000/jwt',{email:currentUser.email})
+      .then(data => {
+        localStorage.setItem('access-token',data.data.token)
+        // console.log(data.data.token)
+        setLoading(false)
+      })
+     }else{
+      localStorage.removeItem('access-token')
+     }
       
     })
     return (()=>{

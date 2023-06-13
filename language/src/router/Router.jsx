@@ -11,10 +11,15 @@ import Instructors from "../Instructors/Instructors";
 import Dashboard from "../layouts/Dashboard/Dashboard"
 import Mybook from "../pages/Dashboard/Mybook/Mybook"
 import ManageUsers from "../pages/Dashboard/ManageUsers/ManageUsers";
+import ErrorPage from "../pages/ErrorPage";
+import PrivateRoutes from "../Routes/PrivateRoutes";
+import AdminRoute from "../Routes/AdminRoute";
+import AddaClass from "../pages/Dashboard/Instructors/AddaClass";
 export const router = createBrowserRouter([
   {
     path: "/",
     element:<Main />,
+    errorElement:<ErrorPage />,
     children:[
       {
         path:"/",
@@ -41,7 +46,7 @@ export const router = createBrowserRouter([
   },
   {
     path:'dashboard',
-    element:<Dashboard />,
+    element:<PrivateRoutes><Dashboard /></PrivateRoutes>,
     children:[
       {
         path:'mybook',
@@ -49,7 +54,11 @@ export const router = createBrowserRouter([
       },
       {
         path:'manageusers',
-        element:<ManageUsers />
+        element:<AdminRoute><ManageUsers /></AdminRoute>
+      },
+      {
+        path:'addaclass',
+        element:<AddaClass />
       }
     ]
   }

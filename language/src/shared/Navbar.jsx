@@ -51,12 +51,12 @@ const navMenu = <>
             </NavLink>
             </li>
 
-           <li className='flex'>
-           <Link to="/dashboard/mybook" ><button className="  gap-4">
+           <li>
+           <button className=" flex  gap-4">
             <AiOutlineShoppingCart />
           <span className="badge -mt-30 badge-secondary">+ {book?.length || 0}</span>
           
-        </button></Link>
+        </button>
            </li>
 </>
 
@@ -84,6 +84,7 @@ const navMenu = <>
       {/* <Link to='/login' className="btn bg-[#5BD9B3] text-white hover:bg-[#55e2b8]">Login</Link> */}
       {
             user ? <>
+            <Link to="/dashboard"><h1>Dashboard</h1></Link>
            
                 <button onClick={handleLogOut} className="btn bg-[#5BD9B3] text-white hover:bg-[#55e2b8]">LogOut</button>
             <div className="w-10 rounded-full">
