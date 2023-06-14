@@ -21,7 +21,7 @@ const SignIn = () => {
         updateUserProfile(data.name, data.photoURL)
          .then(()=>{
           const saveUser = {name: data.name,email:data.email}
-          fetch('http://localhost:1000/users',{
+          fetch('https://school-server-two.vercel.app/users',{
             method:"POST",
             headers:{
               'content-type':'application/json'

@@ -3,11 +3,13 @@ import { useForm } from 'react-hook-form';
  
 import Swal from "sweetalert2";
 import useAxiosSecure from '../../../hook/useAxiosSecure';
+import useAuth from '../../../hook/useAuth';
 
 const img_hosting_token = import.meta.env.VITE_IMG_UPLOAD;
 
 const AddaClass = () => {
     const [axiosSecure] = useAxiosSecure();
+    const {user} =useAuth()
     const { register, handleSubmit, reset } = useForm();
     const img_hosting_url = `https://api.imgbb.com/1/upload?key=${img_hosting_token}`
 
@@ -24,8 +26,8 @@ const AddaClass = () => {
         .then(imgResponse => {
             if(imgResponse.success){
                 const imgURL = imgResponse.data.display_url;
-                const {name, price, instructor, seats} = data;
-                const newClass = {name, price: parseFloat(price), instructor, seats, image:imgURL}
+                const {name, price, instructor, seats,email } = data;
+                const newClass = {name, price: parseFloat(price),email:instructorEmail, instructor, seats, image:imgURL}
                 console.log("new classs",newClass)
                 axiosSecure.post('/classes', newClass)
                 .then(data => {
@@ -49,11 +51,11 @@ const AddaClass = () => {
     
     return (
         <div className="w-full px-10">
-           
+           <h1>{user.displayName}</h1>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="form-control w-full mb-4">
                     <label className="label">
-                        <span className="label-text font-semibold">Name*</span>
+                        <span className="label-text font-semibold">Country Name*</span>
                     </label>
                     <input type="text" placeholder="Country Name"
                         {...register("name", { required: true, maxLength: 120 })}
@@ -64,8 +66,25 @@ const AddaClass = () => {
                     <label className="label">
                         <span className="label-text">Instructor </span>
                     </label>
-                    <textarea {...register("instructor", { required: true })} className="input input-bordered  " placeholder="instructor name"></textarea>
+                    <input
+                    {...register("instructor", { required: true })}
+                    className="input input-bordered"
+                    placeholder="instructor name"
+                    defaultValue={user.displayName}
+                    />
+
                 </div>
+                <div className="form-control">
+                        <label className="label">
+                            <span className="label-text">Instructor Email </span>
+                        </label>
+                        <input
+                            {...register("email", { required: true })}
+                            className="input input-bordered"
+                            placeholder="instructor name"
+                            defaultValue={user.email}
+                        />
+                        </div>
                 <div className="form-control">
                     <label className="label">
                         <span className="label-text">Available Seats </span>

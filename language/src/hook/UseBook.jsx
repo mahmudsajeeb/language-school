@@ -6,19 +6,9 @@ import { AuthContext } from '../provider/AuthProvider'
 import useAxiosSecure from './useAxiosSecure'
 const useBook = ()=>{
   const {user,loading} = useContext(AuthContext)
-//  const token = localStorage.getItem('access-token');
+ 
    
-  // const { refetch, data: book = [] } = useQuery(['book', user?.email], async () => {
-  //   const response = await fetch(`http://localhost:1000/books?email=${user?.email}`,
-  //   {
-  //     headers:{
-  //       authorization:`bearer ${token}`
-  //     }
-  //   }
-  //   );
-     
-  //   return response.json();
-  // });
+ 
   const [axiosSecure] = useAxiosSecure();
     const { refetch, data: book = [] } = useQuery({
         queryKey: ['book', user?.email],

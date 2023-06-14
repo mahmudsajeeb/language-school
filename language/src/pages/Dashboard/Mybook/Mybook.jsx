@@ -1,10 +1,9 @@
 import React from 'react'
 import useBook from '../../../hook/UseBook'
 import { Helmet } from 'react-helmet-async'
-import { FaTrashAlt } from "react-icons/fa";
+ 
 import Swal from "sweetalert2";
-import { Link } from "react-router-dom"
-
+ 
 function Mybook() {
   const [book,refetch] = useBook()
   const total = book.reduce((sum,item) => item.price + sum , 0)
@@ -21,7 +20,7 @@ console.log("book delete",book._id)
         confirmButtonText: 'Yes, delete it!'
     }).then((result) => {
         if (result.isConfirmed) {
-            fetch(`http://localhost:1000/books/${item._id}`, {
+            fetch(`https://school-server-two.vercel.app/books/${item._id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())

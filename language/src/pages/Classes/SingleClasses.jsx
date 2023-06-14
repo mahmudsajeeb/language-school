@@ -27,7 +27,7 @@ function SingleClasses({classes}) {
       };
   
       try {
-        const response = await fetch('http://localhost:1000/books', {
+        const response = await fetch('https://school-server-two.vercel.app/books', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -80,7 +80,7 @@ function SingleClasses({classes}) {
     <div className="max-w-md mx-auto bg-white shadow-md rounded-md overflow-hidden">
       <img src={image} alt={name} className="w-full h-48 object-cover" />
       <div className="px-4 py-4">
-        <h3 className="text-lg font-medium text-gray-900">{name}</h3>
+        <h3 className="text-lg font-medium text-gray-900">{classes?.name}</h3>
         <p className="text-sm text-gray-500">Instructor: {instructor}</p>
         <p className="text-sm text-gray-500">Available Seats: {availableSeats}</p>
         <p className="text-lg font-semibold text-gray-900 mt-2">${price}</p>

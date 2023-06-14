@@ -17,7 +17,7 @@ const {signInwithGoogle} = useContext(AuthContext)
       const user = result.user
       console.log(user)
       const saveUser = {name:user.displayName, email:user.email}
-                    fetch('http://localhost:1000/users',{
+                    fetch('https://school-server-two.vercel.app/users',{
                         method:"POST",
                         headers:{
                             'content-type':'application/json'

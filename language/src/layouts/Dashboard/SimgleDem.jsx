@@ -1,4 +1,4 @@
- import React from 'react'
+import React from 'react'
 import { Helmet } from 'react-helmet-async'
 import { NavLink, Outlet } from 'react-router-dom'
 import { BsBookHalf } from 'react-icons/bs';
@@ -8,12 +8,14 @@ import { GiClassicalKnowledge } from "react-icons/gi"
 
 import useBook from '../../hook/UseBook';
 import useAdmin from '../../hook/useAdmin';
+import useInstructor from '../../hook/useInstructor';
 
  function Dashboard() {
   const [book] = useBook()
 
   // todo : load data from the database 
   const isAdmin =useAdmin();
+  const isInstructor = useInstructor()
    return (
      <div>
      <Helmet>
@@ -31,25 +33,19 @@ import useAdmin from '../../hook/useAdmin';
     <ul className="menu p-4 w-80 h-full bg-green-500 text-base-content">
 
     {
-      isAdmin ? <>
-      <li><NavLink><FaHome></FaHome> Admin Home</NavLink></li>
-      <li><NavLink to="/dashboard/manageclass"><GiClassicalKnowledge></GiClassicalKnowledge>Manage Classes</NavLink></li>
+      isAdmin ?
+         
+        (
+          <>
+          <li><NavLink><FaHome></FaHome> Admin Home</NavLink></li>
+           <li><NavLink>Manage Classes</NavLink></li>
        
           <li><NavLink to='/dashboard/manageusers'><FaUsers></FaUsers>Manage Users</NavLink></li>
-       
-     
-      </> :<>
-
-      <li><NavLink>My Classes</NavLink></li>
-      <li><NavLink> Total Enrolled Students</NavLink></li>
-     
-       
-       <li><NavLink to="/">Feedback</NavLink></li>
-      </>
-    }
-      {/* Sidebar content here */}
-
-      <div className="divider"></div>
+          <li><NavLink to="/"><FaHome></FaHome>Home</NavLink></li>
+          </>
+        ):  isInstructor ?(
+            <>
+            <div className="divider"></div>
       
       <li><NavLink to="/dashboard/addaclass"><GiClassicalKnowledge></GiClassicalKnowledge> Add a Classes </NavLink></li>
       <li><NavLink><FaWallet></FaWallet> Payment History</NavLink></li>
@@ -57,7 +53,23 @@ import useAdmin from '../../hook/useAdmin';
           <span className="badge -mt-30 badge-secondary">+ {book?.length || 0}</span></NavLink></li>
        
          
-       <li><NavLink to="/"><FaHome></FaHome>Home</NavLink></li>
+      
+            </>
+        ):(
+          <>
+
+            <li><NavLink to="myclass">My Classes</NavLink></li>
+            <li><NavLink> Total Enrolled Students</NavLink></li>
+
+            
+            <li><NavLink to="/">Feedback</NavLink></li>
+            </>
+        )
+        
+    }
+      {/* Sidebar content here */}
+
+      
     </ul>
 
   </div>
