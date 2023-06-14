@@ -3,6 +3,7 @@ import useBook from '../../../hook/UseBook'
 import { Helmet } from 'react-helmet-async'
  
 import Swal from "sweetalert2";
+import { Link } from 'react-router-dom';
  
 function Mybook() {
   const [book,refetch] = useBook()
@@ -50,7 +51,8 @@ console.log("book delete",book._id)
     <div className='font-semibold h-10 items-center flex justify-between  uppercase '>
       <h1>Total Order: {book.name}</h1>
       <p>Total Price: ${total}</p>
-      <button className='btn btn-warning btn-sm'>Pay</button>
+      
+      <Link to="/dashboard/payment"><button className='btn btn-warning btn-sm'>Pay</button></Link>
     </div>
     <div className="overflow-x-auto w-full">
   <table className="table w-full">
