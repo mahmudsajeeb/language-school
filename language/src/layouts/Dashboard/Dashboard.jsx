@@ -62,7 +62,8 @@ import useAdmin from '../../hook/useAdmin';
       <div className="divider"></div>
       
      <h1 className='text-2xl font-semibold'>Student</h1>
-      <li><NavLink><FaWallet></FaWallet> My Enrolled Classes:</NavLink></li>
+      <li><NavLink><GiClassicalKnowledge></GiClassicalKnowledge> My Enrolled Classes:</NavLink></li>
+      <li><NavLink to='/dashboard/payment'><FaWallet></FaWallet> Payments</NavLink></li>
       <li><NavLink to="/dashboard/mybook"> <BsBookHalf ></BsBookHalf> My Selected Classes  <AiOutlineShoppingCart />
           <span className="badge -mt-30 badge-secondary">+ {book?.length || 0}</span></NavLink></li>
        

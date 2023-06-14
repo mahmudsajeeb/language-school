@@ -18,6 +18,7 @@ import AddaClass from "../pages/Dashboard/Instructors/AddaClass";
 import InstrutorRoute from "../Routes/InstructorRoute";
 import MyClasses from "../pages/Dashboard/Instructors/MyClasses";
 import ManageClass from "../pages/Dashboard/Admin/ManageClass";
+import Payment from "../pages/Dashboard/Payment/Payment";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -32,6 +33,7 @@ export const router = createBrowserRouter([
         path:"instructors",
         element: <Instructors />
       },
+      
       {
         path:"classes",
         element:<PrivateRoutes><Classes /></PrivateRoutes>
@@ -62,6 +64,10 @@ export const router = createBrowserRouter([
       {
         path:'manageusers',
         element:<AdminRoute><ManageUsers /></AdminRoute>
+      },
+      {
+        path:"payment",
+        element: <Payment />
       },
       {
         path:'myclasses',
