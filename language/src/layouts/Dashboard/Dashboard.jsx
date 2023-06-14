@@ -3,8 +3,10 @@ import { Helmet } from 'react-helmet-async'
 import { NavLink, Outlet } from 'react-router-dom'
 import { BsBookHalf } from 'react-icons/bs';
 import { FaHome,FaUsers,FaWallet } from 'react-icons/fa';
-import { AiOutlineShoppingCart } from "react-icons/ai" 
+
+import { AiOutlineShoppingCart ,AiOutlineStar} from "react-icons/ai" 
 import { GiClassicalKnowledge } from "react-icons/gi" 
+import { MdClass } from "react-icons/md" 
 
 import useBook from '../../hook/UseBook';
 import useAdmin from '../../hook/useAdmin';
@@ -41,18 +43,26 @@ import useAdmin from '../../hook/useAdmin';
       </> :<>
 
       <li><NavLink>My Classes</NavLink></li>
-      <li><NavLink> Total Enrolled Students</NavLink></li>
+      <li><NavLink>  Total Enrolled Students</NavLink></li>
      
        
-       <li><NavLink to="/">Feedback</NavLink></li>
+       <li><NavLink to="/"><AiOutlineStar  />Feedback</NavLink></li>
       </>
     }
       {/* Sidebar content here */}
 
       <div className="divider"></div>
-      
+      <h1 className='text-2xl font-semibold'>Instructor</h1>
       <li><NavLink to="/dashboard/addaclass"><GiClassicalKnowledge></GiClassicalKnowledge> Add a Classes </NavLink></li>
-      <li><NavLink><FaWallet></FaWallet> Payment History</NavLink></li>
+      <li><NavLink to="/dashboard/myclasses"><MdClass /> My Classes</NavLink></li>
+      <li><NavLink> Total Enrolled Students</NavLink></li>
+     
+       
+       <li><NavLink to="/">Feedback</NavLink></li>
+      <div className="divider"></div>
+      
+     <h1 className='text-2xl font-semibold'>Student</h1>
+      <li><NavLink><FaWallet></FaWallet> My Enrolled Classes:</NavLink></li>
       <li><NavLink to="/dashboard/mybook"> <BsBookHalf ></BsBookHalf> My Selected Classes  <AiOutlineShoppingCart />
           <span className="badge -mt-30 badge-secondary">+ {book?.length || 0}</span></NavLink></li>
        

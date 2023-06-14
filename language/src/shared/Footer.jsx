@@ -36,7 +36,7 @@ function Footer() {
       </footer>
 
       <div className='footer-center pb-20 text-white'>
-        <p><span className='text-teal-500'>Language Center</span> © 2023 - All right reserved by sajib Industries Ltd</p>
+        <p><span className='text-teal-500'>Language School</span> © 2023 - All right reserved by sajib Industries Ltd</p>
       </div>
     </div>
   )
